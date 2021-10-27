@@ -1,8 +1,10 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 from sklearn.linear_model import (
     RANSACRegressor, HuberRegressor
 )
+
 from sklearn.svm import SVR
 
 from sklearn.model_selection import train_test_split
@@ -18,7 +20,7 @@ if __name__ == "__main__":
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.3, random_state=42)
 
-    estimadores = {
+    estimators = {
         'SVR': SVR(gamma='auto', C=1.0, epsilon=0.1),
         'RANSAC': RANSACRegressor(),
         'HUBER': HuberRegressor(epsilon=1.35)
@@ -30,3 +32,10 @@ if __name__ == "__main__":
         print("="*64)
         print(name)
         print("MSE: ", mean_squared_error(y_test, predictions))
+
+    plt.ylabel('Predicted Score')
+    plt.xlabel('Real Score')
+    plt.title('Predicted VS Real')
+    plt.scatter(y_test, predictions)
+    plt.plot(predictions, predictions, 'r--')
+    plt.show()
