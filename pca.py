@@ -17,7 +17,7 @@ from sklearn.model_selection import train_test_split
 if __name__ == "__main__":
 
     # Cargamos los datos del dataframe de pandas
-    dt_heart = pd.read_csv('data/heart.csv')
+    dt_heart = pd.read_csv('datasets/heart.csv')
 
     # Imprimimos un encabezado con los primeros 5 registros
     print(dt_heart.head(5))
