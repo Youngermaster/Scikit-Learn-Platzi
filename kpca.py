@@ -32,5 +32,3 @@ if __name__ == "__main__":
 
     logistic.fit(dt_train, y_train)
     print("SCORE KPCA: ", logistic.score(dt_test, y_test))
-
-    # kernels_y_kpca
